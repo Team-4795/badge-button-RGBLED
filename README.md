@@ -7,7 +7,7 @@ Specification and features are still being defined.  At very least, it
 will have some cool color patterns on its addressable LEDs, probably
 two of them.  It might also be able to do some other useful functions.
 
-Hardware
+## Hardware
 
 Definitely or possibly will include:
 
@@ -23,11 +23,12 @@ Definitely or possibly will include:
 
 The schematic and board design is in the kicad subdirectory.
 
-Software
+## Software
 
 Software is in the `src` directory.
 
 We hope to make the code buildable with the arduino IDE, but I haven't
 yet found an arduino-IDE plugin package for the attiny85.  
+
 
 
