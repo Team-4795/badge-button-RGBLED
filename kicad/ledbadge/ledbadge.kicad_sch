@@ -721,8 +721,8 @@
     (property "Datasheet" "~" (at 31.75 63.5 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "2" (uuid 6c578bbb-56ef-4517-a2fa-0ffa52de7e9f))
     (pin "1" (uuid 983e0932-2f8e-4481-8e3e-87903e82d162))
+    (pin "2" (uuid 6c578bbb-56ef-4517-a2fa-0ffa52de7e9f))
     (instances
       (project "ledbadge"
         (path "/3a89a026-2e2f-4a4d-a795-8a4846df971d"
