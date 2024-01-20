@@ -1,0 +1,92 @@
+
+
+Learned a bit more: actually, the whole breadboard (tiny, rgb-led)
+works fine on 3 volts from 2 AAA cells.  Draws about 8 mA - with the
+LEDs not fully bright.  That changes the partslist for power a lot -
+might work on a single CR2032, or only 2 AAAs.  Running a test over
+the weekend to see how long a set of AAAs last.
+
+
+Next steps on the RGB-LED Button/Badge board project: I've dropped a
+few more symbols onto the schematic for us to talk about.  Task 1:
+everyone following along get git and kicad 7.0 installed on your home
+computer, and clone the repo
+https://github.com/Team-4795/badge-button-RGBLED
+
+Once you clone the repo and open the kicad project, the schematic
+should look like this:
+sch-dec20.png
+
+One of the new parts is a capacitor, a component that stores
+electrical energy for a short time.  It does this by allowing extra
+electrons to accumulate on one of its two _plates_, while the other
+plate has a deficit of electrons (or a positive charge).  It can
+release that charge as current very fast - much faster than a battery
+can charge or discharge.  Chips like our microcontroller and smart
+LEDs draw can current in very spiky bursts, and may not operate
+correctly without capacitors placed very close to the chip.  We'll put
+one by the CPU and one near each LED.
+
+Drawing schematic connections (wires) in KiCad
+
+
+(symbol vs footprint, re cr2032)
+
+
+Cool!  Sorry it took so long for me to get back to you; crash project
+at work last night and today.  Upon more thought, I don't think we
+need a custom symbol for the coin cell holder.  The generic
+device/battery symbol will do fine, and looks like the traditional
+textbook battery symbol.  What we do need is a custom footprint - the
+shape that goes on the PCB layout that specifies where the holes+pads
+for the pins are, and has the exact round shape with a bump out on one
+side for the silkscreen and the keepout region.
+https://www.digikey.com/en/products/detail/adam-tech/BH-25C-1/13537703
+(edited)
+
+Now, if you wanted to do a custom symbol anyway just to learn how: I'd
+draw the short+thick and long+thin lines of the textbook battery
+symbol in the middle.  Then put an upward-facing pin on the top, for
+the plus connection.  and a downward facing pin on the bottom.
+
+
+Pins have both a name and a number, here the names are plus and minus, and the numbers 1 and 2.   The reference designator is B?,  and the value is CR2032.
+
+Like i said, we really don't need to do this, but it won't hurt.  But
+when would you need a special custom symbol?  If its a wierd battery
+or thing that has three or more pins, for one.  Say you want to have a
+thick current-carrying pin for the charge/discharge current, and a
+thin pin that senses the voltage right at the battery.  Then, you'd
+draw more pins on the sides, or make the whole thing a rectangle and
+put them wherever it makes sense.
+
+just clarifying: symbols don't and usually shouldn't look anything
+like the physical part on the board - they should look like the
+textbook symbols for best understanding.  Footprints on the other hand
+have to exactly match the size and hold positions of part that gets
+chosen.One reason for the distinction: In industry, the design
+engineer draws the schematic, and someone else picks the parts and
+does the board layout based on which parts are available cheapest, or
+on time, or otherwise fit the physical needs.
+
+Where I led us astray is thinking about the other candidate battery
+holder
+https://www.digikey.com/en/products/detail/te-connectivity-linx/BAT-HLD-001-THM/3044009
+which has 4 physical pins that both hold down the metal clip to the
+board and provide the electrical connection.  I've used other
+schematic+board tools that didn't allow a symbol to have 2 pins and
+the footprint to have 5.  But in Kicad that's OK.  Although it will
+force you to connect all 4 of the "plus" pins together electrically,
+even though only one of them would really need to be wired up since
+they're connected together through the metal of the clip.  Even more
+elaborate tools allow specfiying the diference between "pick whichever
+one of these 4 is convenient" and "you must wire up all four".
+
+
+
+
+
+Reply…
+Also send to 
+electrical
+

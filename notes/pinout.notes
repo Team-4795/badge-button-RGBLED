@@ -1,0 +1,38 @@
+
+
+attiny85 pin budget.
+
+// ATMEL ATTINY45 / ARDUINO
+//
+//                           +-\/-+
+//  Ain0 Reset (D  5)  PB5  1|    |8   VCC
+//  Ain3       (D  3)  PB3  2|    |7   PB2  (D  2)  INT0  Ain1
+//  Ain2       (D  4)  PB4  3|    |6   PB1  (D  1)        pwm1
+//                     GND  4|    |5   PB0  (D  0)        pwm0
+//                           +----+
+
+
+ICSP needs  PB0, PB1, PB2, PB5
+     pins 5, 6, 7, 1.
+
+proposed pin usage:
+
+1   reset - no other connection but ICSP
+3   ws2812 data out -   PB4/D4/Ain2
+
+6   digital/pwm IO  - PB1 / D1 / pwm1
+2   analog in  Ain3 / PB3 / D3
+
+7    pushbutton to ground / PB2 / D2 / Ain1
+
+
+if we want to measure our own power supply,
+connect voltage divider to our analog-in pin.
+they recommend keeping the analog-in impedance below 10K
+but maybe we can violate that since it shouldn't change rapidly.
+try 100K+100K
+
+maybe install either the voltage divider or the analog-in header
+as a build-time option.
+
+

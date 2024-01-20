@@ -1,0 +1,62 @@
+
+
+move and share spreadsheet of parts   - DONE
+move and share slides	   DONE
+
+recheck voltage needs - done
+do test with AAA batteries - in progress started sunday 12/10
+   	seems to be shifting color after 48 hours.  we are down to around 2.7v
+	definitely wrong colors by wednesday evening 12/13
+	2 AA cells down around 2.6v
+	wish we'd done a voltage/time plot.
+
+test with CR2032
+  specified life is at a 15K ohm load to 2.0v
+  	    	 so we'll likely stop way earlier
+  at 10mA load, quickly drops to 2.5v, falls off further after 20-25 mAh
+     	  so maybe could get 10 usable hours.
+  CR2032 really not great above 2mA
+  test it anyway.  unknown-condition CR2032 from drawer.
+  start around 11pm wed dec 13 at 2.8v connected to attiny+leds
+  	some color shift almost right away
+  	11 am thursday: down to 2.51v,  pretty much just red/green
+  try again with a new CR2023
+      start 9:45 pm wed dec 20  -  3.01v
+      10:15pm wed dec 20 - 2.703v    some color shift
+      10:48pm wed dec 20 - 2.68v     colors not much worse 
+      11:20pm wed dec 20 - 2.67v
+      11:45pm wed dec 20 - 2.66v
+      12:20am thur dec 20 - 2.655v
+      10:40am thurs dec 20 - 2.55v pretty close to only red+green
+
+      6.5 hours to 2.6v .  probably useful if we do
+      	  voltage-dependent color correction
+
+can the attiny85 adc measure its own power supply?
+    no, not without an external voltage divider and using up a pin.
+
+look into kicad 7
+     os upgrade  DONE, got 7.0.9
+
+work us through building the schematic
+  update 1:  kicad 7
+  	 add bypass capacitors
+	 add power symbols
+
+  update 2: hook up the rest of the power.  maybe walk someone else through
+
+  update 3: CPU to ICSP and LEDs
+
+  update 4: power
+  	 battery holders
+	 switch
+	 reverse protection diode
+
+  update 5: accessory connectors
+  	 analog in
+	 digial I/O
+	 ws2812 daisy-chain output
+
+
+
+

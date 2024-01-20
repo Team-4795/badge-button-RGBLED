@@ -1,0 +1,79 @@
+
+checking out a branch to see whats in a change.
+
+find the branch in git
+git clone to get a new copy
+    	  or is it the same thing?  yes
+
+jake's branch is called "master"
+switch to that
+  git checkout master
+then we have the files
+
+run kicad
+close project
+explicitly open the right project, look at the files
+
+then merge, how?
+how to merge only selected files?
+ (not junk files or backups)
+
+--
+
+so:
+
+git pull (to get all files from repo, all branches)
+git checkout master   (now on jake's ill-named branch)
+git checkout main  (now on trunk, maybe also ill-named)
+
+to pull over individual files:
+
+Although not a merge per se, sometimes the entire contents of another
+file on another branch are needed. Jason Rudolph's blog post [https://jasonrudolph.com/blog/2009/02/25/git-tip-how-to-merge-specific-files-from-another-branch/] provides
+a simple way to copy files from one branch to another. Apply the
+technique as follows:
+
+$ git checkout branch1 # ensure in branch1 is checked out and active
+$ git checkout branch2 file.py
+
+Now file.py is now in branch1.
+
+--
+
+.gitattributes  to tag file types
+-- put file anywhere a .gitignore can go
+
+*.kicad_sch  -merge text
+	     won't merge
+	     will treat as text (for newline conversion)
+	     will show diffs
+
+---
+
+links 
+
+https://forum.kicad.info/t/using-git-to-manage-kicads-projects/4651/4
+
+https://jnavila.github.io/plotkicadsch/
+
+proposes a mechanism for visual diffs... but "plotkicadsch" is old, for kicad v5
+
+add+commit the -cache.lib library file
+if keeping a custom library, that's a seperate repo imported as a git module
+
+One commit per change. https://seesparkbox.com/foundry/atomic_commits_with_git 223
+    just commit often. one commit per unit change.
+
+
+https://atlaswiki.lbl.gov/guides/kicad/git
+
+https://hackaday.com/2018/09/19/advanced-techniques-for-using-git-with-kicad/
+
+----
+
+
+"close" a pull request - in github
+
+to delete a branch ...
+
+
